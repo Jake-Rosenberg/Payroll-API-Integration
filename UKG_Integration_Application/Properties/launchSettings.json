@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "UKG_Integration_Application": {
+      "commandName": "Project"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}

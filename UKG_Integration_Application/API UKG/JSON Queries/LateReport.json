@@ -1,0 +1,61 @@
+{
+  "select": [
+    {
+      "alias": "ShiftStart",
+      "key": "TIMECARD_TRANS_START_DATETIME"
+    },
+    {
+      "alias": "PayCode",
+      "key": "CORE_PAYCODE"
+    },
+    {
+      "alias": "PunchIn",
+      "key": "TIMECARD_TRANS_END_DATETIME"
+    },
+    {
+      "alias": "HoursLate",
+      "key": "TIMECARD_TRANS_ACTUAL_HOURS"
+    }
+
+  ],
+  "from": {
+    "employeeSet": {
+      "dateRange": {
+        "symbolicPeriod": {
+          "id": 909
+        }
+      },
+      "employees": {
+        "ids": [
+          2798,
+          2800,
+          2802,
+          2810,
+          2819
+        ]
+      }
+    },
+    "view": "EMP"
+  },
+  "options": {
+    "includeColumnTotals": false
+  },
+  "where": [
+    {
+      "alias": "PayCode",
+      "key": "CORE_PAYCODE",
+      "operator": "EQUAL_TO",
+      "values": [
+        "D_Late"
+      ]
+    },
+    {
+      "alias": "HoursLate",
+      "key": "TIMECARD_TRANS_ACTUAL_HOURS",
+      "operator": "GREATER_THAN_OR_EQUAL_TO",
+      "values": [
+        "00:30"
+      ]
+    }
+  ]
+}
